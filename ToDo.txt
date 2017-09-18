@@ -1,0 +1,18 @@
+1. Clear out SendGridEvents and remind Matt to tell Trois the Solutions can be
+	found by filtering on 'Unopened'.
+2. Add 48, 72, 100hr notification events
+3. If a solution is re-delivered update SendGridEvents table. Maybe add a 're-sent' status
+	and update all events by message_ids to be 're-sent'. If status = 're-sent'
+	don't send notification.
+
+	
+	
+	What I did Monday Night:
+	1. Changed send grid events in prod db to 're-sent', except for ones delivered
+		after white label was up and working.
+	2. Unopened Notification Email is sent only to me.
+	3. EmailDeliveryManager looks for message_id groups without the event of
+		'open' or 're-sent'
+	
+	To Do: Implement the 48 72 100 hr plan.
+	Also, if an email is resent, change the sg_event to 're-sent'
